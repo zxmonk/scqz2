@@ -4,7 +4,7 @@
 <%-- 
     Document   : index
     Created on : 2015-9-28, 13:58:01
-    Author     : Administrator
+    Author     : zxm
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -53,7 +53,7 @@
 
 
         <sql:query var="result" dataSource="${snapshot}">
-            select * from QZDATA.qz_gl_processuserinfo
+            select instrid,stationid,pointid,samplerate,instrcode from QZDATA.QZ_DICT_STATIONINSTRUMENTS order by stationid,pointid
         </sql:query>
 
         <table border="1">
@@ -76,16 +76,6 @@
 
 
 
-        <table border="1">
-            <tr>
-                <c:forEach var="row" items="${result.rowsByIndex}">
-                <tr>
-                    <c:forEach var="column" items="${row}">
-                        <td><c:out value="${column}"/></td>
-                    </c:forEach>
-                </tr>
-            </c:forEach>
-        </tr>
-    </table>
+        
 </body>
 </html>
